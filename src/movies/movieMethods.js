@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const yargs = require("yargs");
 const Movie = require("./movieModels");
 
 exports.addMovie = async (movieObj) => {
@@ -16,6 +17,16 @@ exports.deleteMovie = async (movieObj) => {
         console.log(error);
     }
 };
+
+exports.updateMovie = async (filterTitle,newDetails) => {
+    try{
+        return Movie.findOneAndUpdate(filterTitle, newDetails);
+    }
+    catch(error){
+        console.log(error);
+    }
+};
+
 
 exports.listMovies = async () => {
     try {
