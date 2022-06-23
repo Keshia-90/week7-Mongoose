@@ -9,6 +9,14 @@ exports.addMovie = async (movieObj) => {
     }
 };
 
+exports.deleteMovie = async (movieObj) => {
+    try {
+        await Movie.deleteOne(movieObj)
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 exports.listMovies = async () => {
     try {
         return await Movie.find({});
